@@ -1,0 +1,31 @@
+{
+  "name": "octo-floors-api",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "repository": "git@bitbucket.org:Inadvertance/octo-floors-api.git",
+  "author": "Andrea Gueugnaut <gue@octo.com>",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">= 7.6"
+  },
+  "scripts": {
+    "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'docs(changelog): updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
+    "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'docs(changelog): updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
+    "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'docs(changelog): updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
+    "start": "node src/index.js",
+    "test": "NODE_ENV=test ava"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "ava": "^0.23.0",
+    "eslint": "^4.9.0",
+    "eslint-config-google": "^0.9.1",
+    "generate-changelog": "^1.5.0",
+    "nodemon": "^1.12.1",
+    "nyc": "^11.2.1",
+    "supertest": "^3.0.0"
+  }
+}
