@@ -10,11 +10,16 @@
     "node": ">= 7.6"
   },
   "scripts": {
+    "dev": "nodemon -w src -i src/**/*.test.js --exec 'node src/index.js'",
+    "lint": "eslint src",
+    "precommit": "npm run test",
     "release:major": "changelog -M && git add CHANGELOG.md && git commit -m 'docs(changelog): updated CHANGELOG.md' && npm version major && git push origin && git push origin --tags",
     "release:minor": "changelog -m && git add CHANGELOG.md && git commit -m 'docs(changelog): updated CHANGELOG.md' && npm version minor && git push origin && git push origin --tags",
     "release:patch": "changelog -p && git add CHANGELOG.md && git commit -m 'docs(changelog): updated CHANGELOG.md' && npm version patch && git push origin && git push origin --tags",
     "start": "node src/index.js",
-    "test": "NODE_ENV=test ava"
+    "test": "NODE_ENV=test npm run test:unit && npm run test:api",
+    "test:api": "ava src/**/*.apitest.js",
+    "test:unit": "ava src/**/*.test.js"
   },
   "dependencies": {
     "express": "^4.16.2"
@@ -24,6 +29,7 @@
     "eslint": "^4.9.0",
     "eslint-config-google": "^0.9.1",
     "generate-changelog": "^1.5.0",
+    "husky": "^0.14.3",
     "nodemon": "^1.12.1",
     "nyc": "^11.2.1",
     "supertest": "^3.0.0"
