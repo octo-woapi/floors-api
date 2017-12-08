@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info:
+  title: OCTO floors API
+  contact:
+    name: API maintainers
+    url: http://octo.com
+    email: gue@octo.com
+  version: 0.0.1
+  description: |
+    OCTO Technology's office consists of several floors which could be useful
+    to other APIs, for instance in a localized IoT's API.
+
+servers:
+  - url: http://localhost:8080/api/v1
+    description: Local development server
+  - url: https://sandbox.octo.com/api/v1
+    description: Sandbox test environment
+
+paths:
+  /floors:
+    get:
+      description: Returns the list of floors at OCTO
+      responses:
+        '200':
+          description: A list of floors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Floor'
+        default:
+          $ref: '#/components/schemas/Error'
+
+  /floors/{floorId}:
+    get:
+      description: Returns a floor at OCTO
+      responses:
+        '200':
+          description: A floor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Floor'
+        '404':
+          description: Floor not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        default:
+          $ref: '#/components/schemas/Error'
+
+  /floors/{floorId}/areas:
+    get:
+      description: Returns a floor's areas at OCTO
+      responses:
+        '200':
+          description: Areas belonging to a floor
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Area'
+        default:
+          $ref: '#/components/schemas/Error'
+
+  /floors/{floorId}/areas/{areaId}:
+    get:
+      description: Returns a specific floor's area
+      reponses:
+        '200':
+          description: An area belonging to a floor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Area'
+        default:
+          $ref: '#/components/schemas/Error'
+
+components:
+  parameters:
+    floorId:
+      name: floorId
+      in: path
+      description: A floor ID representing a real floor number
+      required: true
+      schema:
+        type: integer
+        format: int32
+    areaId:
+      name: areaId
+      in: path
+      description: An area ID representing a real area number
+      required : true
+      schema:
+        type: integer
+        format: int32
+
+  schemas:
+    Floor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        areas:
+          type: array
+          items:
+            $ref: '#/components/schemas/Area'
+    Area:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        surface:
+          type: integer
+          format: int32
+        capacity:
+          type: integer
+          format: int32
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
