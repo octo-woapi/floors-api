@@ -1,39 +1,39 @@
 [
   {
-    "_id": 0,
+    "id": 0,
     "areas": []
   },
   {
-    "_id": 1,
+    "id": 1,
     "areas": []
   },
   {
-    "_id": 2,
+    "id": 2,
     "areas": [
       {
-        "_id": 1,
+        "id": 1,
         "name": "Salle Tim Berners-Lee",
         "capacity": 10
       },
       {
-        "_id": 2,
+        "id": 2,
         "name": "Salle Vint Cerf",
         "capacity": 4
       },
       {
-        "_id": 3,
-        "name": "Open space OpÃ©ra",
+        "id": 3,
+        "name": "Open space Opéra",
         "surface": 272,
         "capacity": 50
       },
       {
-        "_id": 4,
+        "id": 4,
         "name": "Open space central",
         "surface": 110,
         "capacity": 26
       },
       {
-        "_id": 5,
+        "id": 5,
         "name": "Open space Gaillon",
         "surface": 128,
         "capacity": 32
@@ -41,15 +41,15 @@
     ]
   },
   {
-    "_id": 5,
+    "id": 5,
     "areas": [
       {
-        "_id": 1,
+        "id": 1,
         "name": "Salle George Boole",
         "capacity": 10
       },
       {
-        "_id": 2,
+        "id": 2,
         "name": "Bureau de direction",
         "surface": 246,
         "capacity": 40
