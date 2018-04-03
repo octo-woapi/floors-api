@@ -6,7 +6,11 @@
   "env": {
     "node": true
   },
-  "rules": {
-    "arrow-parens": [2, "as-needed"]
-  }
+  "plugins": [
+    "promise"
+  ],
+  "extends": [
+    "airbnb-base",
+    "plugin:promise/recommended"
+  ]
 }
