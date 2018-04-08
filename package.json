@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "engines": {
-    "node": ">= 8.10.0"
+    "node": ">= 7.6.0"
   },
   "scripts": {
     "dev": "nodemon -w src --exec 'node src/index.js'",
