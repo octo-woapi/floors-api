@@ -1,6 +1,6 @@
 {
   "name": "octo-floors-api",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "src/index.js",
   "repository": "git@bitbucket.org:Inadvertance/octo-floors-api.git",
   "author": "Andrea Gueugnaut <gue@octo.com>",
@@ -13,6 +13,7 @@
     "dev": "nodemon -w src --exec 'node bin/start'",
     "lint": "eslint src",
     "precommit": "npm test",
+    "release": "standard-version",
     "start": "node src/index.js",
     "pretest": "npm run lint",
     "test": "npm run test:unit && npm run test:api",
