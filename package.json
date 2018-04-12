@@ -10,25 +10,35 @@
     "node": ">= 7.6.0"
   },
   "scripts": {
-    "dev": "nodemon -w src --exec 'node src/index.js'",
+    "dev": "nodemon -w src --exec 'node bin/start'",
     "lint": "eslint src",
-    "precommit": "npm run test:unit",
+    "precommit": "npm test",
     "start": "node src/index.js",
+    "pretest": "npm run lint",
     "test": "npm run test:unit && npm run test:api",
     "test:api": "ava 'test/api/**/*.test.js'",
+    "test:api:watch": "npm run test:api -- --watch",
     "test:unit": "ava 'test/unit/**/*.test.js'",
     "test:unit:watch": "npm run test:unit -- --watch"
   },
   "dependencies": {
+    "@koa/cors": "^2.2.1",
     "joi": "^13.1.2",
     "koa": "^2.5.0",
+    "koa-conditional-get": "^2.0.0",
+    "koa-etag": "^3.0.0",
+    "koa-helmet": "^4.0.0",
+    "koa-logger": "^3.2.0",
+    "koa-response-time": "^2.0.0",
     "koa-router": "^7.4.0",
+    "koa2-validation": "^0.1.0",
     "pify": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^1.0.0-beta.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-ava": "^4.5.1",
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-promise": "^3.7.0",
     "generate-changelog": "^1.6.0",
