@@ -44,7 +44,7 @@ test('listFloors - should list floors and return 200 OK', async (t) => {
 
 test('getFloor - should get a floor by ID and return 200 OK', async (t) => {
   const ctx = {
-    path: {
+    params: {
       id: 2,
     },
   };
@@ -56,7 +56,7 @@ test('getFloor - should get a floor by ID and return 200 OK', async (t) => {
 
 test('getFloor - should throw a NotFound error if the floor was not found', async (t) => {
   const ctx = {
-    path: {
+    params: {
       id: 42,
     },
     throw() {

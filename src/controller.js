@@ -7,7 +7,7 @@ const listFloors = repository =>
 
 const getFloor = repository =>
   async (ctx) => {
-    const floor = await repository.findFloorById(ctx.path.id);
+    const floor = await repository.findFloorById(ctx.params.id);
     if (!floor) {
       ctx.throw(404, 'Floor not found');
     }
