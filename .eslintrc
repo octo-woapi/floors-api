@@ -7,10 +7,15 @@
     "node": true
   },
   "plugins": [
+    "ava",
     "promise"
   ],
   "extends": [
     "airbnb-base",
+    "plugin:ava/recommended",
     "plugin:promise/recommended"
-  ]
+  ],
+  "rules": {
+    "no-param-reassign": ["error", { "props": false }]
+  }
 }
