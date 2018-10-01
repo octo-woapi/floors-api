@@ -14,7 +14,7 @@
     "lint": "eslint src",
     "precommit": "npm test",
     "release": "standard-version",
-    "start": "node src/index.js",
+    "start": "node bin/start",
     "pretest": "npm run lint",
     "test": "npm run test:unit && npm run test:api",
     "test:api": "ava 'test/api/**/*.test.js'",
