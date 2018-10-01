@@ -58,6 +58,19 @@ module.exports = () => {
     }),
   }), controller.getFloor);
 
+  router.get('/floors/:id/areas', validate({
+    params: Joi.object().keys({
+      id: Joi.number().integer().required(),
+    }),
+  }), controller.listFloorAreas);
+
+  router.get('/floors/:floorId/areas/:areaId', validate({
+    params: Joi.object().keys({
+      floorId: Joi.number().integer().required(),
+      areaId: Joi.number().integer().required(),
+    }),
+  }), controller.getFloorArea);
+
   // Register routes into the app
   app.use(router.routes());
   app.use(router.allowedMethods());
