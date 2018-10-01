@@ -28,6 +28,10 @@ GET /v1/floors/{floorId}/areas/{areaId}
 
 `yarn` or `npm install`
 
+## Running
+
+`yarn start`
+
 ## Testing
 
 Full testing: `yarn test`
