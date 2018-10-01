@@ -25,7 +25,7 @@ test('findFloorAreas - should find a floor\'s areas', async (t) => {
   t.true(areas.length > 0);
 });
 
-test('findFloorAreaById - should a floor\'s specific area by Id', async (t) => {
+test('findFloorAreaById - should find a floor\'s specific area by id', async (t) => {
   const area = await repository.findFloorAreaById(2, 1);
   t.is(typeof area, 'object');
   t.is(typeof area.name, 'string');

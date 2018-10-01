@@ -67,7 +67,7 @@ test('getFloor - should throw a NotFound error if the floor was not found', asyn
     },
   };
   const promise = controller.getFloor(ctx);
-  const err = await t.throws(promise);
+  const err = await t.throwsAsync(promise);
   t.is(typeof err, 'object');
   t.is(err.status, 404);
 });
